@@ -36,7 +36,7 @@ function Floaters({ y }: { y: MotionValue<string> }) {
       <MotionIcon className="absolute left-[10rem] top-[15rem] h-[16rem] w-[16rem] -translate-x-1/2 -translate-y-1/2 rotate-3 transform" />
       <MotionIcon className="absolute left-[24rem] top-[60rem] h-[24rem] w-[24rem] -translate-x-1/2 -translate-y-1/2 -rotate-3 transform" />
       <MotionIcon className="absolute left-[50rem] top-[12rem] h-[5rem] w-[5rem] -translate-x-1/2 -translate-y-1/2 rotate-12 transform" />
-      <MotionIcon className="absolute left-[45rem] top-[100rem] h-[12rem] w-[12rem] -translate-x-1/2 -translate-y-1/2 rotate-6 transform" />
+      <MotionIcon className="absolute left-[52rem] top-[100rem] h-[12rem] w-[12rem] -translate-x-1/2 -translate-y-1/2 rotate-6 transform" />
       <MotionIcon className="absolute left-[65rem] top-[37rem] h-[9rem] w-[9rem] -translate-x-1/2 -translate-y-1/2 rotate-45 transform" />
       <MotionIcon className="absolute left-[90rem] top-[20rem] h-[8rem] w-[8rem] -translate-x-1/2 -translate-y-1/2 -rotate-12 transform" />
       <MotionIcon className="absolute left-[96rem] top-[75rem] h-[30rem] w-[30rem] -translate-x-1/2 -translate-y-1/2 rotate-3 transform" />
