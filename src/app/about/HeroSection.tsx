@@ -47,6 +47,7 @@ export function HeroSection() {
           alt="me"
           width={160}
           height={160}
+          priority
         />
         <div>
           <MotionTypography variants={fadeAndSlideInFromRight} level="heading1">

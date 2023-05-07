@@ -9,13 +9,16 @@ const FigureVariants = cva(["relative overflow-hidden rounded-lg"], {
 
 export type FigureProps = React.ComponentPropsWithoutRef<"figure"> &
   VariantProps<typeof FigureVariants> &
-  Pick<React.ComponentPropsWithoutRef<typeof NextImage>, "src" | "alt"> &
+  Pick<
+    React.ComponentPropsWithoutRef<typeof NextImage>,
+    "src" | "alt" | "priority"
+  > &
   Required<
     Pick<React.ComponentPropsWithoutRef<typeof NextImage>, "width" | "height">
   >;
 
 export const Figure = React.forwardRef<React.ElementRef<"figure">, FigureProps>(
-  ({ className, src, alt, width, height, ...props }, ref) => {
+  ({ className, src, alt, width, height, priority, ...props }, ref) => {
     const classes = FigureVariants({});
 
     return (
@@ -24,6 +27,7 @@ export const Figure = React.forwardRef<React.ElementRef<"figure">, FigureProps>(
           className="absolute left-0 top-0 h-full w-full object-cover"
           src={src}
           alt={alt}
+          priority={priority}
           width={width}
           height={height}
         />

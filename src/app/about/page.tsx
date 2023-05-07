@@ -11,6 +11,7 @@ import { HeroSection } from "./HeroSection";
 import { WorkSection } from "./WorkSection";
 import { StackSection } from "./StackSection";
 import { ToolsSection } from "./ToolsSection";
+import { ProjectsSection } from "./ProjectsSection";
 
 export default function Page() {
   return (
@@ -38,6 +39,8 @@ export default function Page() {
       <StackSection />
 
       <ToolsSection />
+
+      <ProjectsSection />
     </main>
   );
 }
