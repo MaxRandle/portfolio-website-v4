@@ -3,14 +3,18 @@ import NextLink from "next/link";
 import { twMerge } from "tailwind-merge";
 
 const NavLinkVariants = cva(
-  ["text-lg sm:text-xl leading-loose", "text-base-500 hover:text-white"],
+  [
+    "focus-visible:border m-[1px] focus-visible:m-0 focus-visible:ring-active focus-visible:border-opacity-100",
+    "rounded-lg p-2 text-lg sm:text-xl leading-loose",
+    "text-base-500 hover:text-white",
+  ],
   {
     variants: {
       /**
        * @summary boolean indicating whether the NavLink is active
        */
       isActive: {
-        true: "text-white dark:text-white border-b-2",
+        true: "text-white",
         false: "",
       },
     },

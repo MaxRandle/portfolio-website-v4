@@ -8,6 +8,7 @@ const TypographyClasses = cva("text-base", {
      * @summary specifies the color of the text. Defaults to `weak`
      */
     color: {
+      inherit: "",
       base: "text-black dark:text-white group-[]/darkmode:text-white",
       weak: "text-base-1200 dark:text-base-400 group-[]/darkmode:text-base-400",
       weaker:

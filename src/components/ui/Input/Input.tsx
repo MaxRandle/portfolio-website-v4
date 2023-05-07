@@ -2,16 +2,17 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 
 const InputVariants = cva(
-  [
-    "border appearance-none px-4 py-3 rounded-lg focus:outline-none focus:ring-4 w-full",
+  twMerge([
+    "border appearance-none px-4 py-3 rounded-lg focus:ring-active w-full",
 
     // base classes
-    "text-base-1100 bg-base-100 border-base-400 focus:border-primary-500 ring-primary-300",
-    "dark:text-base-400 dark:bg-base-1600 dark:border-base-1200 dark:focus:border-primary-700 dark:ring-primary-1300",
+    "text-base-1100 bg-base-100 border-base-400",
+    "dark:text-base-400 dark:bg-base-1600 dark:border-base-1200",
 
     // invalid classes
-    "invalid:text-danger-1100 invalid:bg-danger-200 invalid:border-danger-500 invalid:focus:border-danger-700 invalid:ring-danger-300",
-    "invalid:dark:text-danger-400 invalid:dark:bg-danger-1500 invalid:dark:border-danger-1000 invalid:dark:focus:border-danger-700 invalid:dark:ring-danger-1300",
+    "invalid:focus:ring-danger",
+    "invalid:text-danger-1100 invalid:bg-danger-200 invalid:border-danger-500",
+    "dark:invalid:text-danger-400 dark:invalid:bg-danger-1500 dark:invalid:border-danger-1000",
 
     // disabled classes
     "disabled:bg-base-300 disabled:dark:bg-base-1200 disabled:opacity-60",
@@ -25,7 +26,7 @@ const InputVariants = cva(
     "group-[]/input-group:last:rounded-r-lg",
 
     //
-  ],
+  ]),
   { variants: {} }
 );
 
