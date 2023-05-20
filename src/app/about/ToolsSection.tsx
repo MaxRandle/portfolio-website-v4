@@ -19,6 +19,7 @@ import { SiPrisma } from "react-icons/si";
 import { T3Logo } from "@/components/svgs/T3Logo";
 import { TrpcLogo } from "@/components/svgs/TrpcLogo";
 import { useRef } from "react";
+import { TurboRepoLogo } from "@/components/svgs/TurboRepoLogo";
 
 export function ToolsSection() {
   const CONTENT = {
@@ -74,6 +75,11 @@ export function ToolsSection() {
           name: "Zod",
           icon: ZodLogo,
           url: "https://zod.dev/",
+        },
+        {
+          name: "TurboRepo",
+          icon: TurboRepoLogo,
+          url: "https://turbo.build/repo",
         },
       ],
     },

@@ -20,7 +20,7 @@ export default function Page() {
 
       <HeroSection />
 
-      <Container className="flex w-full items-center gap-4 sm:gap-8">
+      <Container className="flex w-full items-center">
         <Divider className="grow" />
         <ButtonLink
           className="inline-flex items-center gap-2"

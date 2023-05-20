@@ -3,7 +3,7 @@
 import { Section } from "@ui/Section";
 import { Container } from "@ui/Container";
 import { Typography } from "@ui/Typography";
-import { Card, CardContent, CardLink } from "@ui/Card";
+import { CardContent, CardLink } from "@ui/Card";
 
 import { motion, useInView } from "framer-motion";
 
