@@ -46,7 +46,7 @@ export function WorkSection() {
   }, [currentIndex, CONTENT.work.adjectives]);
 
   return (
-    <Section>
+    <Section spacing={"lg"}>
       <Container
       // className="flex flex-col items-center gap-4 sm:grid sm:grid-cols-2 sm:gap-6"
       >

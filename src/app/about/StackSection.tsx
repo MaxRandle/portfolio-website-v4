@@ -86,7 +86,12 @@ export function StackSection() {
   const y = useTransform(scrollYProgress, [0, 1], ["-30%", "-70%"]);
 
   return (
-    <Section ref={ref} className="relative overflow-hidden" palette={"surface"}>
+    <Section
+      ref={ref}
+      className="relative overflow-hidden"
+      palette={"surface"}
+      spacing={"lg"}
+    >
       <Container>
         <Floaters y={y} />
         <Typography level={"heading2"}>{CONTENT.stack.heading}</Typography>

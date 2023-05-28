@@ -3,12 +3,15 @@ export const ROUTES = {
   about: { root: "/about" },
   playground: { root: "/playground" },
   projects: {
-    alphaTac: { root: "/projects/alpha-tac" },
-    iss: { root: "/projects/iss" },
-    p5js: { root: "/projects/p5js" },
-    randleRecipes: { root: "/projects/randle-recipes" },
+    slug: (slug: string) => `/projects/${slug}`,
   },
-};
+} as const;
+
+type GetLeafNodeUnion<T> = T extends Record<string, any>
+  ? GetLeafNodeUnion<T[keyof T]>
+  : T;
+
+export type Route = GetLeafNodeUnion<typeof ROUTES>;
 
 export const PUBLIC = {
   documents: {
@@ -24,4 +27,6 @@ export const PUBLIC = {
       randleRecipes: "/media/projects/randle-recipes.png",
     },
   },
-};
+} as const;
+
+export type PublicAsset = GetLeafNodeUnion<typeof PUBLIC>;

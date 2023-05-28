@@ -92,7 +92,7 @@ export function ToolsSection() {
   });
 
   return (
-    <Section ref={ref}>
+    <Section ref={ref} spacing={"lg"}>
       <Container className="mx-auto max-w-3xl text-center lg:px-6">
         <Typography className="" level={"heading2"}>
           {CONTENT.toolkit.heading}

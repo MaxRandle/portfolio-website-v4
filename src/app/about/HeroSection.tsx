@@ -25,7 +25,7 @@ export function HeroSection() {
   const MotionFigure = motion(Figure);
 
   return (
-    <Section>
+    <Section spacing={"lg"}>
       <MotionContainer
         className="mx-auto flex flex-col items-center justify-center gap-4 text-center sm:flex-row sm:gap-6 sm:text-left"
         variants={{
