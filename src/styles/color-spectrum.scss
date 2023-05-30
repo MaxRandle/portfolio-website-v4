@@ -25,11 +25,18 @@ $h-map: (
   "pearl": 282,
   "jade": 185,
   "rust": 48,
+  "aubergine": 325,
+  "mahogany": 16,
+  "olive": 130,
+  "coffee": 70,
 
   // primary/theme colors
-  "deep-orange": 48,
   "cyenta": 282,
   "teal": 185,
+  "deep-orange": 48,
+  "fuchsia": 325,
+  "rose": 16,
+  "lime": 130,
 
   // status colors
   "emerald": 155,
@@ -72,7 +79,7 @@ $l-map: (
   "1600": 12%,
 );
 
-$c-map: (
+$primary-chroma-map: (
   "100": 0.02,
   "200": 0.04,
   "300": 0.08,
@@ -90,35 +97,8 @@ $c-map: (
   "1500": 0.04,
   "1600": 0.04,
 );
-// $l-map: (
-//   "50": 98.51%,
-//   "100": 97.02%,
-//   "200": 92.19%,
-//   "300": 86.99%,
-//   "400": 71.55%,
-//   "500": 55.55%,
-//   "600": 43.86%,
-//   "700": 37.15%,
-//   "800": 26.86%,
-//   "900": 20.46%,
-//   "1000": 14.48%,
-//   "1100": 14.48%,
-// );
-// $c-map: (
-//   "50": 0.02,
-//   "100": 0.04,
-//   "200": 0.08,
-//   "300": 0.15,
-//   "400": 0.2,
-//   "500": 0.25,
-//   "600": 0.2,
-//   "700": 0.15,
-//   "800": 0.1,
-//   "900": 0.05,
-//   "950": 0.04,
-// );
 
-$neutral-c-map: (
+$neutral-chroma-map: (
   "100": 0,
   "200": 0,
   "300": 0,
@@ -137,51 +117,51 @@ $neutral-c-map: (
   "1600": 0,
 );
 
-$accent-c-map: (
-  "100": 0.025,
-  "200": 0.025,
-  "300": 0.025,
-  "400": 0.025,
-  "500": 0.025,
-  "600": 0.025,
-  "700": 0.025,
-  "800": 0.025,
-  "900": 0.025,
-  "1000": 0.025,
-  "1100": 0.025,
-  "1200": 0.025,
-  "1300": 0.025,
-  "1400": 0.025,
-  "1500": 0.025,
-  "1600": 0.025,
+$accent-chroma-map: (
+  "100": 0.015,
+  "200": 0.015,
+  "300": 0.015,
+  "400": 0.015,
+  "500": 0.015,
+  "600": 0.015,
+  "700": 0.015,
+  "800": 0.015,
+  "900": 0.015,
+  "1000": 0.015,
+  "1100": 0.015,
+  "1200": 0.015,
+  "1300": 0.015,
+  "1400": 0.015,
+  "1500": 0.015,
+  "1600": 0.015,
 );
-// $accent-c-map: (
-//   "50": 0.0125,
-//   "100": 0.0125,
-//   "200": 0.025,
-//   "300": 0.03,
-//   "400": 0.035,
-//   "500": 0.04,
-//   "600": 0.04,
-//   "700": 0.04,
-//   "800": 0.04,
-//   "900": 0.04,
-//   "1000": 0.04,
-//   "1100": 0.04,
-// );
 
 $chroma-map: (
-  "grey": $neutral-c-map,
-  "pearl": $accent-c-map,
-  "jade": $accent-c-map,
-  "rust": $accent-c-map,
-  "deep-orange": $c-map,
-  "cyenta": $c-map,
-  "teal": $c-map,
-  "emerald": $c-map,
-  "sky": $c-map,
-  "amber": $c-map,
-  "red": $c-map,
+  // neutral
+  "grey": $neutral-chroma-map,
+
+  // accent
+  "pearl": $accent-chroma-map,
+  "jade": $accent-chroma-map,
+  "rust": $accent-chroma-map,
+  "aubergine": $accent-chroma-map,
+  "mahogany": $accent-chroma-map,
+  "olive": $accent-chroma-map,
+  "coffee": $accent-chroma-map,
+
+  // primary
+  "deep-orange": $primary-chroma-map,
+  "cyenta": $primary-chroma-map,
+  "teal": $primary-chroma-map,
+  "fuchsia": $primary-chroma-map,
+  "rose": $primary-chroma-map,
+  "lime": $primary-chroma-map,
+
+  // status
+  "emerald": $primary-chroma-map,
+  "sky": $primary-chroma-map,
+  "amber": $primary-chroma-map,
+  "red": $primary-chroma-map
 );
 
 :root {
