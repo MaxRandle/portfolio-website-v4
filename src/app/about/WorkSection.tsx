@@ -4,9 +4,6 @@ import { Section } from "@ui/Section";
 import { Container } from "@ui/Container";
 import { Typography } from "@ui/Typography";
 
-import { PUBLIC } from "@/config/routes";
-import { Figure } from "@ui/Figure";
-
 import { AnimatePresence, motion } from "framer-motion";
 
 import { useEffect, useState } from "react";
@@ -23,11 +20,8 @@ export function WorkSection() {
         "functional",
         "seamless",
         "beautiful",
-        "gay",
       ],
       body2: "web applications using modern tech.",
-
-      media: PUBLIC.media.maxArtExhibit,
     },
   };
 
@@ -47,19 +41,8 @@ export function WorkSection() {
 
   return (
     <Section spacing={"lg"}>
-      <Container
-      // className="flex flex-col items-center gap-4 sm:grid sm:grid-cols-2 sm:gap-6"
-      >
+      <Container>
         <Typography level="heading2">{CONTENT.work.heading}</Typography>
-
-        {/* <Figure
-          className="row-span-2 aspect-square h-full max-h-[16rem] min-w-[12rem] shrink-0 rounded-full"
-          src={CONTENT.work.media}
-          alt="me viewing art"
-          width={160}
-          height={160}
-        /> */}
-
         <div className="mx-auto mt-16 flex flex-col sm:flex-row">
           <Typography color="weaker" level={"heading1"}>
             {CONTENT.work.body1}
