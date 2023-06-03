@@ -1,16 +1,17 @@
-import { redirect } from "next/navigation";
-import { PROJECTS } from "../projects";
-import { ROUTES } from "@/config/routes";
-import { Section } from "@ui/Section";
-import { Container } from "@ui/Container";
-import { Typography } from "@ui/Typography";
+import { PROJECT_SLUGS, getProjectFromSlug } from "@/utils/files";
 
-export default async function Page({ params }: { params: { slug: string } }) {
-  const { name, description, body } = await getProjectFromSlug(params.slug);
+type Params = {
+  slug: string;
+};
+
+export default async function Page({ params }: { params: Params }) {
+  const { slug } = params;
+
+  const { frontMatter, source } = await getProjectFromSlug(slug);
 
   return (
     <main className="min-h-screen overflow-hidden">
-      <Section>
+      {/* <Section>
         <Container>
           <Typography level={"heading1"}>{name}</Typography>
           <Typography className="mt-4" level={"subheading"} color="weaker">
@@ -18,19 +19,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
           </Typography>
         </Container>
       </Section>
-      {body}
+      {body} */}
+      <pre>
+        <code>{JSON.stringify(frontMatter, null, 2)}</code>
+      </pre>
     </main>
   );
 }
 
-export async function generateStaticParams() {
-  return PROJECTS.map(({ slug }) => slug);
-}
-
-async function getProjectFromSlug(slug: string) {
-  const project = PROJECTS.find((project) => project.slug === slug);
-  if (!project) {
-    redirect(ROUTES.about.root);
-  }
-  return project;
+export function generateStaticParams() {
+  return PROJECT_SLUGS;
 }

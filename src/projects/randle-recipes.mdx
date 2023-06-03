@@ -1,0 +1,55 @@
+---
+title: Randle Recipes
+year: 2021
+summary: An online recipe book for the Randle family.
+tags: ["authentication", "dynamic content"]
+thumbnail: "randle-recipes.png"
+---
+
+## Randle Recipes Concept
+
+My Cousin and I collaborated to build an online recipe book for our relatives can use to see what we cook and upload their own recipes.
+
+The website was meant to be a tribute to my Grandmother who will always be remembered for her cooking. She kept a cookbook of containing hundreds of her own handwritten recipes which we transcribed and digitised.
+
+## The build
+
+### Stack
+
+The app is built using **MERN** stack. **M**ongoDB for the Database, **E**xpressJS for the webserver/http-handler, **R**eactJS as our component framework, **N**odeJS for the JavaScript runtime.
+
+We chose this stack because of its simplicity, familiarity, popularity, and ease of deployment. It also presented us with a chance to try out some interesting and complex features without being bagged down by learning an unfamiliar stack.
+
+Due to the highly connected nature of our data and objects, I opted to go for a GraphQL API which I had fun building and learned a lot.
+
+The user interface was built using the Material-UI React component library which offered so much convenience and alleviated a lot of effort allowed us to quickly and efficiently prototype interfaces.
+
+### Notable undertakings
+
+One of the biggest challenges was settling on a data model. We evolved our data model a few times in the early stages of development as we honed in on requirements.
+
+I was responsible for designing and building database schemas, designing and building our API, and implementing the GraphQL object controllers.
+
+### Features
+
+The core features are a form that acommodates a liberal recipe format, a home page with a search/filter field for finding recipes, and a nicely presented display fprmat for recipes.
+
+We also implemented user accounts with our own JWT auth system and role permissions, with the admin role having the ability to update other users details and update any recipe.
+
+### Deployment and hosting
+
+The front end is deployed on Vercel lamdas which are an amazing free service which takes a lot of the headache out of deployment and provides easy ways to manage domains. Vercel is able to do some black magic to ensure it lamdas have no cold starts.
+
+The back end is deployed to heroku on a hobby tier dyno. These instances do unfortunately spin down after 30 minutes of inactivity, but the back end is actually very small and starts up very quickly.
+
+The database is hosted on MongoDB Atlas,
+
+### Learnings
+
+The biggest regret I have is not using a headless CMS to handle the recipes, It would have saved so so so much time and with CMS's like Strapi and Sanity.io, we would not have sacrificed any flexibility. Some CMS's like strapi are compatible with Prisma which is a fantastic ORM.
+
+At the time of building, I was not yet attuned with the ways of TypeScript, which is now my sworn religion and I can never go back. Thinking about how much easier this project would have been with TypeScript brings a tear to my eye.
+
+Another huge regret I have is not using NextJS for the frontend. It would have literally been perfect for this. Dynamic content, incremental static regeneration, dynamic routing, optimisation with Vercel lamdas, etc.
+
+I have a few good things to say about MongoDB Atlas, I would use MongoDB again but I would probably not use their JavaScript ORM Mongoose, and I would instead opt for Prisma which can also be used for Strapi.

@@ -12,8 +12,13 @@ import { WorkSection } from "./WorkSection";
 import { StackSection } from "./StackSection";
 import { ToolsSection } from "./ToolsSection";
 import { ProjectsSection } from "./ProjectsSection";
+import { PROJECT_SLUGS, getProjectFromSlug } from "@/utils/files";
 
-export default function Page() {
+export default async function Page() {
+  const projectsFrontMatter = (
+    await Promise.all(PROJECT_SLUGS.map(getProjectFromSlug))
+  ).map((project) => project.frontMatter);
+
   return (
     <main className="min-h-screen overflow-hidden">
       <AppNavHeader />
@@ -40,7 +45,15 @@ export default function Page() {
 
       <ToolsSection />
 
-      <ProjectsSection />
+      {/* TODO remove ones this gets fixed: https://github.com/vercel/next.js/issues/42292 */}
+      {/* @ts-expect-error Async Server Component */}
+      <ProjectsSection projectsFrontMatter={projectsFrontMatter} />
     </main>
   );
 }
+
+// export const generateStaticParams = async () => {
+//   const projects = (
+//     await Promise.all(PROJECT_SLUGS.map(getProjectFromSlug))
+//   ).map((project) => project.frontMatter);
+// };

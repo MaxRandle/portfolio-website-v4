@@ -34,7 +34,7 @@ export function WorkSection() {
     <Section spacing={"lg"}>
       <Container>
         <Typography level="heading2">{CONTENT.work.heading}</Typography>
-        <div className="mx-auto mt-16 flex flex-col sm:flex-row">
+        <div className="mt-16 inline-flex flex-col sm:flex-row">
           <Typography color="weaker" level={"heading1"}>
             {CONTENT.work.body1}
           </Typography>
