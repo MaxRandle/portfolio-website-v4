@@ -22,15 +22,18 @@ $h-map: (
   "grey": 0,
 
   // accent colors
+  "plum": 328,
+  "mist": 195,
   "pearl": 282,
   "jade": 185,
   "rust": 48,
   "aubergine": 325,
   "mahogany": 16,
   "olive": 130,
-  "coffee": 70,
 
   // primary/theme colors
+  "magenta": 328,
+  "cyan": 195,
   "cyenta": 282,
   "teal": 185,
   "deep-orange": 48,
@@ -118,22 +121,22 @@ $neutral-chroma-map: (
 );
 
 $accent-chroma-map: (
-  "100": 0.015,
-  "200": 0.015,
-  "300": 0.015,
-  "400": 0.015,
-  "500": 0.015,
-  "600": 0.015,
-  "700": 0.015,
-  "800": 0.015,
-  "900": 0.015,
-  "1000": 0.015,
-  "1100": 0.015,
-  "1200": 0.015,
-  "1300": 0.015,
-  "1400": 0.015,
-  "1500": 0.015,
-  "1600": 0.015,
+  "100": 0.02,
+  "200": 0.02,
+  "300": 0.02,
+  "400": 0.02,
+  "500": 0.02,
+  "600": 0.02,
+  "700": 0.02,
+  "800": 0.02,
+  "900": 0.02,
+  "1000": 0.02,
+  "1100": 0.02,
+  "1200": 0.02,
+  "1300": 0.02,
+  "1400": 0.02,
+  "1500": 0.02,
+  "1600": 0.02,
 );
 
 $chroma-map: (
@@ -141,15 +144,18 @@ $chroma-map: (
   "grey": $neutral-chroma-map,
 
   // accent
+  "plum": $accent-chroma-map,
+  "mist": $accent-chroma-map,
+  "rust": $accent-chroma-map,
   "pearl": $accent-chroma-map,
   "jade": $accent-chroma-map,
-  "rust": $accent-chroma-map,
   "aubergine": $accent-chroma-map,
   "mahogany": $accent-chroma-map,
   "olive": $accent-chroma-map,
-  "coffee": $accent-chroma-map,
 
   // primary
+  "magenta": $primary-chroma-map,
+  "cyan": $primary-chroma-map,
   "deep-orange": $primary-chroma-map,
   "cyenta": $primary-chroma-map,
   "teal": $primary-chroma-map,

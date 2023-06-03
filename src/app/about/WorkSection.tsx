@@ -7,6 +7,7 @@ import { Typography } from "@ui/Typography";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { useEffect, useState } from "react";
+import { useCycleArray } from "@/hooks/useCycleArray";
 
 export function WorkSection() {
   const CONTENT = {
@@ -27,17 +28,7 @@ export function WorkSection() {
 
   const MotionTypography = motion(Typography);
 
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
-
-  useEffect(() => {
-    setTimeout(() => {
-      let next = currentIndex + 1;
-      if (next === CONTENT.work.adjectives.length) {
-        next = 0;
-      }
-      setCurrentIndex(next);
-    }, 2 * 1000);
-  }, [currentIndex, CONTENT.work.adjectives]);
+  const { currentItem } = useCycleArray(CONTENT.work.adjectives, 2 * 1000);
 
   return (
     <Section spacing={"lg"}>
@@ -49,6 +40,48 @@ export function WorkSection() {
           </Typography>
           <div className="relative mt-4 pb-12 sm:mt-0 sm:pb-0">
             <AnimatePresence>
+              <MotionTypography
+                variants={{
+                  enter: {
+                    y: -45,
+                    opacity: 0,
+                  },
+                  onStage: {
+                    y: 0,
+                    opacity: 1,
+                  },
+                  exit: {
+                    y: 45,
+                    opacity: 0,
+                  },
+                }}
+                transition={{
+                  duration: 0.5,
+                  opacity: {
+                    ease: "easeIn",
+                  },
+                }}
+                initial="enter"
+                animate="onStage"
+                exit="exit"
+                className="absolute sm:left-[0.4ch]"
+                color="primary"
+                level={"heading1"}
+              >
+                <span>{` ${currentItem}`}</span>
+              </MotionTypography>
+            </AnimatePresence>
+          </div>
+        </div>
+        <Typography className="mt-16" color="weaker" level={"heading3"}>
+          {CONTENT.work.body2}
+        </Typography>
+      </Container>
+    </Section>
+  );
+}
+
+/*
               {
                 CONTENT.work.adjectives.map((adjective) => (
                   <MotionTypography
@@ -84,13 +117,4 @@ export function WorkSection() {
                   </MotionTypography>
                 ))[currentIndex]
               }
-            </AnimatePresence>
-          </div>
-        </div>
-        <Typography className="mt-16" color="weaker" level={"heading3"}>
-          {CONTENT.work.body2}
-        </Typography>
-      </Container>
-    </Section>
-  );
-}
+*/
