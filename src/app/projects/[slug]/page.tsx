@@ -1,3 +1,5 @@
+// "use client";
+
 import { PROJECT_SLUGS, getProjectFromSlug } from "@/utils/files";
 import { MDXRemote } from "next-mdx-remote";
 
@@ -24,7 +26,7 @@ export default async function Page({ params }: { params: Params }) {
       <pre>
         <code>{JSON.stringify(frontMatter, null, 2)}</code>
       </pre>
-      <MDXRemote {...source} />
+      {/* <MDXRemote {...source} /> */}
     </main>
   );
 }
