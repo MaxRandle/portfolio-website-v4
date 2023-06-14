@@ -18,6 +18,7 @@ import {
 } from "@/utils/animations";
 import { motion } from "framer-motion";
 import { SplitContainer, SplitItem } from "@ui/Split";
+import { Heading } from "@ui/Heading";
 
 export default function Page() {
   const MotionSplitContainer = motion(SplitContainer);
@@ -34,18 +35,18 @@ export default function Page() {
 
       <Section>
         <Container>
-          <Typography level="heading1" color="base">
+          <Heading level="h1" palette="base">
             hello dude.
-          </Typography>
-          <Typography level="heading1" color="weak">
+          </Heading>
+          <Heading level="h1" palette="weak">
             hello dude.
-          </Typography>
-          <Typography level="heading1" color="weaker">
+          </Heading>
+          <Heading level="h1" palette="weaker">
             hello dude.
-          </Typography>
-          <Typography level="heading1" color="primary">
+          </Heading>
+          <Heading level="h1" palette="primary">
             hello dude.
-          </Typography>
+          </Heading>
         </Container>
       </Section>
 
@@ -131,8 +132,8 @@ export default function Page() {
               <AvatarContainer>
                 <Avatar src="https://placekitten.com/220/220">{`CF`}</Avatar>
                 <div>
-                  <Typography level="heading3">Cat Catterson</Typography>
-                  <Typography level="body" color="weaker">
+                  <Heading level="h3">Cat Catterson</Heading>
+                  <Typography level="body" palette="weaker">
                     Head of CATering
                   </Typography>
                 </div>

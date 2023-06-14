@@ -14,6 +14,7 @@ import {
   ProjectFrontMatter,
   getProjectFromSlug,
 } from "@/utils/files";
+import { Heading } from "@ui/Heading";
 
 export async function ProjectsSection({
   projectsFrontMatter,
@@ -27,7 +28,7 @@ export async function ProjectsSection({
   return (
     <Section spacing={"lg"}>
       <Container>
-        <Typography level={"heading2"}>{CONTENT.heading}</Typography>
+        <Heading level={"h2"}>{CONTENT.heading}</Heading>
         <ul className="mt-20 space-y-4">
           {projectsFrontMatter.map(
             ({ slug, summary, tags, thumbnail, title }) => (
@@ -45,8 +46,8 @@ export async function ProjectsSection({
                         />
                       ) : null} */}
                       <div>
-                        <Typography level={"heading3"}>{title}</Typography>
-                        <Typography level={"body"} color="weaker">
+                        <Heading level={"h2"}>{title}</Heading>
+                        <Typography level={"body"} palette="weaker">
                           {summary}
                         </Typography>
                       </div>

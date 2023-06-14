@@ -20,6 +20,7 @@ import { T3Logo } from "@/components/svgs/T3Logo";
 import { TrpcLogo } from "@/components/svgs/TrpcLogo";
 import { useRef } from "react";
 import { TurboRepoLogo } from "@/components/svgs/TurboRepoLogo";
+import { Heading } from "@ui/Heading";
 
 export function ToolsSection() {
   const CONTENT = {
@@ -94,9 +95,9 @@ export function ToolsSection() {
   return (
     <Section ref={ref} spacing={"lg"}>
       <Container className="mx-auto max-w-3xl text-center lg:px-6">
-        <Typography className="" level={"heading2"}>
+        <Heading className="" level={"h2"}>
           {CONTENT.toolkit.heading}
-        </Typography>
+        </Heading>
         <motion.div
           className="mt-20 flex flex-wrap justify-evenly gap-4 sm:justify-center"
           variants={{
@@ -126,7 +127,7 @@ export function ToolsSection() {
             >
               <CardContent className="flex gap-4">
                 <Icon className="shrink-0" size={32} />
-                <Typography level={"heading3"}>{name}</Typography>
+                <Heading level={"h3"}>{name}</Heading>
               </CardContent>
             </MotionCardLink>
           ))}

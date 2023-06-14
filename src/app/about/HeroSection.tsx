@@ -2,7 +2,6 @@
 
 import { Section } from "@ui/Section";
 import { Container } from "@ui/Container";
-import { Typography } from "@ui/Typography";
 
 import { PUBLIC } from "@/config/routes";
 import { Figure } from "@ui/Figure";
@@ -10,6 +9,7 @@ import { Figure } from "@ui/Figure";
 import { motion } from "framer-motion";
 
 import { fadeAndSlideInFromRight } from "@/utils/animations";
+import { Heading } from "@ui/Heading";
 
 export function HeroSection() {
   const CONTENT = {
@@ -21,7 +21,7 @@ export function HeroSection() {
   };
 
   const MotionContainer = motion(Container);
-  const MotionTypography = motion(Typography);
+  const MotionHeading = motion(Heading);
   const MotionFigure = motion(Figure);
 
   return (
@@ -50,16 +50,16 @@ export function HeroSection() {
           priority
         />
         <div>
-          <MotionTypography variants={fadeAndSlideInFromRight} level="heading1">
+          <MotionHeading variants={fadeAndSlideInFromRight} level="h1">
             {CONTENT.hero.heading}
-          </MotionTypography>
-          <MotionTypography
+          </MotionHeading>
+          <MotionHeading
             variants={fadeAndSlideInFromRight}
-            level="heading3"
-            color="weaker"
+            level="h3"
+            palette="weaker"
           >
             {CONTENT.hero.body}
-          </MotionTypography>
+          </MotionHeading>
         </div>
       </MotionContainer>
     </Section>

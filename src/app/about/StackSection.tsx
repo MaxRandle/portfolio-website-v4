@@ -14,6 +14,7 @@ import {
 import { BrandLogoIcon } from "@/components/brand/BrandLogoIcon";
 import { MotionValue, motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { Heading } from "@ui/Heading";
 
 function Floaters({ y }: { y: MotionValue<string> }) {
   const MotionIcon = motion(BrandLogoIcon);
@@ -94,7 +95,7 @@ export function StackSection() {
     >
       <Container>
         <Floaters y={y} />
-        <Typography level={"heading2"}>{CONTENT.stack.heading}</Typography>
+        <Heading level={"h2"}>{CONTENT.stack.heading}</Heading>
         <div className="relative mt-20 grid gap-4 sm:grid-cols-2">
           {CONTENT.stack.tech.map(({ description, icon: Icon, name }) => (
             <Card palette={"base"} key={name}>
@@ -103,7 +104,11 @@ export function StackSection() {
                 <Typography level={"subheading"} className="mt-4">
                   {name}
                 </Typography>
-                <Typography color={"weaker"} level={"caption"} className="mt-4">
+                <Typography
+                  palette={"weaker"}
+                  level={"caption"}
+                  className="mt-4"
+                >
                   {description}
                 </Typography>
               </CardContent>
