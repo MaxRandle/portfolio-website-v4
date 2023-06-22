@@ -9,11 +9,7 @@ import { Badge } from "@ui/Badge";
 import { Avatar } from "@ui/Avatar";
 import { FiChevronRight } from "react-icons/fi";
 import { PUBLIC, ROUTES } from "@/config/routes";
-import {
-  PROJECT_SLUGS,
-  ProjectFrontMatter,
-  getProjectFromSlug,
-} from "@/utils/files";
+import { ProjectFrontMatter } from "@/utils/files";
 import { Heading } from "@ui/Heading";
 
 export async function ProjectsSection({

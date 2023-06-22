@@ -2,8 +2,8 @@
 title: I.S.S Docking Autopilot
 year: 2020
 repo: MaxRandle/spacex_iss_docking_simulator_script
-summary: An autopilot script for the Spacex I.S.S docking simulator.
-tags: ["reverse-engineering", "simulation"]
+summary: An autopilot script for the SpaceX International Space Station docking simulator.
+tags: ["Reverse-engineering", "Algorithms", "Physics"]
 thumbnail: "dragon.png"
 ---
 
@@ -17,7 +17,7 @@ To pique public interest in the mission, SpaceX published a free online docking 
 
 The simulator recreated the actual interface that the pilots used to control Dragon. This quickly became extremely popular and developed a speedrunning community within hours of release with some of the more hardcode speedrunners publishing some very impressive sub 45 second times on YouTube.
 
-![simulator interface](/media/iss.jpeg)
+![simulator interface](/media/projects/iss-interface.jpeg)
 
 After playing around with this for a while, I decided to try to write a script that could autonomously dock. This was quite tricky because it meant I had to open up the website source and figure out which JS file the action was happening in. Then I had to read some minified code and try to figure out which variables were responsible for the numbers I was seeing on the screen such as displacement in 3 axes, pitch, roll, and yaw as well as translational and rotational velocities, the functions that controlled the velocoities, the magnitude of change in the velocity resulting from pressing one of the truster buttons, etc...
 
@@ -25,7 +25,7 @@ Eventually I had reverse engineered the code and came up with a simple algorithm
 
 I was pretty happy with what I had created but I wasn't quite done having fun with this project yet. What's the next logical step?
 
-DO. IT. FASTER.
+**DO. IT. FASTER.**
 
 I devised a highly optimised algorithm based on simple harmonic motion, critical damping, and the spring equation that could dock insanely fast and put even the worlds best human docking speedrunners to absolute shame.
 
@@ -35,7 +35,7 @@ I devised a highly optimised algorithm based on simple harmonic motion, critical
 2. Click begin to start docking
 3. Open your browsers developer tools
 4. Copy paste the code below into the console
-5. A new button that toggles the autopilot labeled **A** will appear in the top left.
+5. A new button that toggles the autopilot labeled **'A'** will appear in the top left.
 6. Click the button!
 
 ```js
@@ -49,7 +49,9 @@ function htmlToElement(html) {
 // add autopilot button
 let autopilotEngaged = false;
 const optionsElement = document.getElementById("options");
-const autopilotButton = htmlToElement('<div id="autopilot" title="Engage Autopilot" class="icon">A</div>');
+const autopilotButton = htmlToElement(
+  '<div id="autopilot" title="Engage Autopilot" class="icon">A</div>'
+);
 autopilotButton.addEventListener("click", () => {
   autopilotEngaged = !autopilotEngaged;
 });
@@ -62,17 +64,28 @@ function sleep(ms) {
 const shouldMove = (targetVelocity, currentVelocity, pulse) => {
   // will moving get me closer to my target velocity
   const newVelocity = currentVelocity + pulse;
-  return Math.abs(targetVelocity - newVelocity) < Math.abs(targetVelocity - currentVelocity);
+  return (
+    Math.abs(targetVelocity - newVelocity) <
+    Math.abs(targetVelocity - currentVelocity)
+  );
 };
 
 const shouldTogglePrecision = (distance) => {
   const precisionThreshold = 5;
-  const precisionStatusElement = document.getElementById("precision-translation-status");
+  const precisionStatusElement = document.getElementById(
+    "precision-translation-status"
+  );
   const precisionToggleButton = document.getElementById("toggle-translation");
 
-  if (distance > precisionThreshold && precisionStatusElement.className !== "noselect large") {
+  if (
+    distance > precisionThreshold &&
+    precisionStatusElement.className !== "noselect large"
+  ) {
     precisionToggleButton.click();
-  } else if (distance <= precisionThreshold && precisionStatusElement.className === "noselect large") {
+  } else if (
+    distance <= precisionThreshold &&
+    precisionStatusElement.className === "noselect large"
+  ) {
     precisionToggleButton.click();
   }
 };
@@ -120,38 +133,56 @@ const loop = async () => {
       shouldTogglePrecision(zRange);
 
       // rotation actuators
-      if (shouldMove(targetRotationXRate, currentRotationX, -rotationIncrement)) {
+      if (
+        shouldMove(targetRotationXRate, currentRotationX, -rotationIncrement)
+      ) {
         pitchDown();
       }
-      if (shouldMove(targetRotationXRate, currentRotationX, rotationIncrement)) {
+      if (
+        shouldMove(targetRotationXRate, currentRotationX, rotationIncrement)
+      ) {
         pitchUp();
       }
-      if (shouldMove(targetRotationYRate, currentRotationY, -rotationIncrement)) {
+      if (
+        shouldMove(targetRotationYRate, currentRotationY, -rotationIncrement)
+      ) {
         yawRight();
       }
-      if (shouldMove(targetRotationYRate, currentRotationY, rotationIncrement)) {
+      if (
+        shouldMove(targetRotationYRate, currentRotationY, rotationIncrement)
+      ) {
         yawLeft();
       }
-      if (shouldMove(targetRotationZRate, currentRotationZ, -rotationIncrement)) {
+      if (
+        shouldMove(targetRotationZRate, currentRotationZ, -rotationIncrement)
+      ) {
         rollRight();
       }
-      if (shouldMove(targetRotationZRate, currentRotationZ, rotationIncrement)) {
+      if (
+        shouldMove(targetRotationZRate, currentRotationZ, rotationIncrement)
+      ) {
         rollLeft();
       }
       // translation actuators
-      if (shouldMove(targetXVelocity, currentXVelocity, -translationPulseSize)) {
+      if (
+        shouldMove(targetXVelocity, currentXVelocity, -translationPulseSize)
+      ) {
         translateLeft();
       }
       if (shouldMove(targetXVelocity, currentXVelocity, translationPulseSize)) {
         translateRight();
       }
-      if (shouldMove(targetYVelocity, currentYVelocity, -translationPulseSize)) {
+      if (
+        shouldMove(targetYVelocity, currentYVelocity, -translationPulseSize)
+      ) {
         translateDown();
       }
       if (shouldMove(targetYVelocity, currentYVelocity, translationPulseSize)) {
         translateUp();
       }
-      if (shouldMove(targetZVelocity, currentZVelocity, -translationPulseSize)) {
+      if (
+        shouldMove(targetZVelocity, currentZVelocity, -translationPulseSize)
+      ) {
         translateForward();
       }
       if (shouldMove(targetZVelocity, currentZVelocity, translationPulseSize)) {

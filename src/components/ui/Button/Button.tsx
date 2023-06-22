@@ -32,7 +32,7 @@ const buttonClasses = cva(
           "focus:ring-active",
           "text-base-1200 dark:text-base-400",
           "bg-base-100 hover:bg-base-200 dark:bg-base-1600 dark:hover:bg-base-1400",
-          "border-base-400 hover:border-base-600 dark:border-base-1200 hover:dark:border-base-1000",
+          "border-base-400 hover:border-base-600 dark:border-base-1200 dark:hover:border-base-1000",
         ],
         destructive: [
           "focus:ring-base",

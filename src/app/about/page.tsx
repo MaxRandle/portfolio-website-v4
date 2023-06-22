@@ -51,9 +51,3 @@ export default async function Page() {
     </main>
   );
 }
-
-// export const generateStaticParams = async () => {
-//   const projects = (
-//     await Promise.all(PROJECT_SLUGS.map(getProjectFromSlug))
-//   ).map((project) => project.frontMatter);
-// };

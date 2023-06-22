@@ -2,6 +2,11 @@
 
 import { PROJECT_SLUGS, getProjectFromSlug } from "@/utils/files";
 import { MDXRemote } from "next-mdx-remote";
+import { ProjectMdxContent } from "./ProjectMdxContent";
+import { Section } from "@ui/Section";
+import { Container } from "@ui/Container";
+import { Heading } from "@ui/Heading";
+import { Typography } from "@ui/Typography";
 
 type Params = {
   slug: string;
@@ -12,21 +17,30 @@ export default async function Page({ params }: { params: Params }) {
 
   const { frontMatter, source } = await getProjectFromSlug(slug);
 
+  const { title, summary } = frontMatter;
+
   return (
     <main className="min-h-screen overflow-hidden">
-      {/* <Section>
+      <Section>
         <Container>
-          <Heading level={"h1"}>{name}</Heading>
+          <Heading level={"h1"}>{title}</Heading>
           <Typography className="mt-4" level={"subheading"} palette="weaker">
-            {description}
+            {summary}
           </Typography>
         </Container>
       </Section>
-      {body} */}
-      <pre>
-        <code>{JSON.stringify(frontMatter, null, 2)}</code>
-      </pre>
-      {/* <MDXRemote {...source} /> */}
+      <Section>
+        <Container>
+          <pre>
+            <code>{JSON.stringify(frontMatter, null, 2)}</code>
+          </pre>
+        </Container>
+      </Section>
+      <Section>
+        <Container>
+          <ProjectMdxContent {...source} />
+        </Container>
+      </Section>
     </main>
   );
 }

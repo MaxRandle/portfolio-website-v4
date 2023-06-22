@@ -25,10 +25,16 @@ export const PUBLIC = {
     maxProfilePicture: "/media/max-crop.jpg",
     maxArtExhibit: "/media/max-art.jpg",
     projects: {
-      alphaTac: "/media/projects/alpha-tac.png",
-      dragonCapsule: "/media/projects/dragon-capsule.png",
-      p5jsLogo: "/media/projects/p5js-logo.svg",
-      randleRecipes: "/media/projects/randle-recipes.png",
+      thumbnails: {
+        fileName: (fileName: string) =>
+          `/media/projects/thumbnails/${fileName}`,
+        // ["alpha-tac"]: "/media/projects/thumbnails/alpha-tac.png",
+        // ["iss-docking-autopilot"]:
+        //   "/media/projects/thumbnails/iss-docking-autopilot.png",
+        // ["p5js"]: "/media/projects/thumbnails/p5js.svg",
+        // ["randle-recipes"]: "/media/projects/thumbnails/randle-recipes.png",
+      },
+      issInterface: "/media/projects/iss-interface.jpeg",
     },
   },
 } as const;
