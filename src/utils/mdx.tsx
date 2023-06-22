@@ -1,7 +1,9 @@
 import { Heading, HeadingProps } from "@ui/Heading";
 import { AnchorLink } from "@ui/Link";
 import { Typography, TypographyProps } from "@ui/Typography";
+import { VariantProps, cva } from "class-variance-authority";
 import { MDXComponents } from "mdx/types";
+import { twMerge } from "tailwind-merge";
 
 export const MdxComponentMap: MDXComponents = {
   h1: (props: HeadingProps) => (
@@ -32,4 +34,31 @@ export const MdxComponentMap: MDXComponents = {
     />
   ),
   pre: (props) => <pre className="mt-4" {...props} />,
+};
+
+const EmbedVariants = cva(["mt-8"], {
+  variants: {
+    width: {
+      full: "w-full",
+      fixed: "w-[32rem] max-w-full mx-auto",
+    },
+    aspect: {
+      square: "aspect-square",
+      video: "aspect-video",
+    },
+  },
+});
+
+export type EmbedProps = React.ComponentProps<"iframe"> &
+  VariantProps<typeof EmbedVariants>;
+
+export const Embed: React.FC<EmbedProps> = ({
+  className,
+  width,
+  aspect,
+  ...props
+}) => {
+  const classes = EmbedVariants({ width, aspect });
+
+  return <iframe className={twMerge(classes, className)} {...props} />;
 };

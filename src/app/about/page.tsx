@@ -45,8 +45,6 @@ export default async function Page() {
 
       <ToolsSection />
 
-      {/* TODO remove ones this gets fixed: https://github.com/vercel/next.js/issues/42292 */}
-      {/* @ts-expect-error Async Server Component */}
       <ProjectsSection projectsFrontMatter={projectsFrontMatter} />
     </main>
   );

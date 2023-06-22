@@ -1,12 +1,8 @@
-import fs from "fs";
-import path from "path";
-
 export const ROUTES = {
   intro: { root: "/" },
   about: { root: "/about" },
   playground: { root: "/playground" },
   projects: {
-    // slugs: projectFilePaths,
     slug: (slug: string) => `/projects/${slug}`,
   },
 } as const;

@@ -1,12 +1,14 @@
 // "use client";
 
 import { PROJECT_SLUGS, getProjectFromSlug } from "@/utils/files";
-import { MDXRemote } from "next-mdx-remote";
 import { ProjectMdxContent } from "./ProjectMdxContent";
 import { Section } from "@ui/Section";
 import { Container } from "@ui/Container";
 import { Heading } from "@ui/Heading";
 import { Typography } from "@ui/Typography";
+import { Link } from "@ui/Link";
+import { ROUTES } from "@/config/routes";
+import { GithubRepositoryChip } from "@/components/misc/GithubRepositoryChip";
 
 type Params = {
   slug: string;
@@ -17,25 +19,28 @@ export default async function Page({ params }: { params: Params }) {
 
   const { frontMatter, source } = await getProjectFromSlug(slug);
 
-  const { title, summary } = frontMatter;
+  const { title, summary, repo } = frontMatter;
 
   return (
     <main className="min-h-screen overflow-hidden">
       <Section>
         <Container>
-          <Heading level={"h1"}>{title}</Heading>
+          <Link href={ROUTES.about.root}>
+            {`Back to `}
+            <code className="rounded-md bg-base-300 p-1 dark:bg-base-1300">
+              {ROUTES.about.root}
+            </code>
+          </Link>
+          <Heading className="mt-12" level={"h1"}>
+            {title}
+          </Heading>
           <Typography className="mt-4" level={"subheading"} palette="weaker">
             {summary}
           </Typography>
+          {repo ? <GithubRepositoryChip className="mt-12" repo={repo} /> : null}
         </Container>
       </Section>
-      <Section>
-        <Container>
-          <pre>
-            <code>{JSON.stringify(frontMatter, null, 2)}</code>
-          </pre>
-        </Container>
-      </Section>
+
       <Section>
         <Container>
           <ProjectMdxContent {...source} />
