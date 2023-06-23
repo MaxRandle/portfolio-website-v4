@@ -44,7 +44,12 @@ export const CardLink = React.forwardRef<
   React.ElementRef<typeof NextLink>,
   CardLinkProps
 >(({ className, palette, elevation, ...props }, ref) => {
-  const focusClasses = ["focus:ring-active hover:ring-active"];
+  const focusClasses = [
+    "focus:ring-active",
+
+    "hover:bg-base-200 dark:hover:bg-base-1400",
+    "hover:border-base-600 dark:hover:border-base-1000",
+  ];
 
   const classes = CardVariants({ palette, elevation });
 

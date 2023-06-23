@@ -119,7 +119,7 @@ export function ToolsSection() {
         >
           {CONTENT.toolkit.tools.map(({ name, icon: Icon, url }) => (
             <MotionCardLink
-              className="shadow-lg ring-primary-400 hover:ring-4"
+              className="shadow-lg"
               key={name}
               href={url}
               target="_blank"

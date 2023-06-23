@@ -22,7 +22,7 @@ export async function ProjectsSection({
   };
 
   return (
-    <Section spacing={"lg"}>
+    <Section id="projects" spacing={"lg"}>
       <Container>
         <Heading level={"h2"}>{CONTENT.heading}</Heading>
         <ul className="mt-20 space-y-4">
@@ -35,12 +35,14 @@ export async function ProjectsSection({
                 >
                   <CardContent>
                     <div className="flex gap-4">
-                      {/* {!!thumbnail ? (
+                      {!!thumbnail ? (
                         <Avatar
-                          src={PUBLIC.media.projects[thumbnail]}
+                          src={PUBLIC.media.projects.thumbnails.fileName(
+                            thumbnail
+                          )}
                           alt={title}
                         />
-                      ) : null} */}
+                      ) : null}
                       <div>
                         <Heading level={"h2"}>{title}</Heading>
                         <Typography level={"body"} palette="weaker">

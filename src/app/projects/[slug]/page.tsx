@@ -1,5 +1,3 @@
-// "use client";
-
 import { PROJECT_SLUGS, getProjectFromSlug } from "@/utils/files";
 import { ProjectMdxContent } from "./ProjectMdxContent";
 import { Section } from "@ui/Section";
@@ -25,7 +23,7 @@ export default async function Page({ params }: { params: Params }) {
     <main className="min-h-screen overflow-hidden">
       <Section>
         <Container>
-          <Link href={ROUTES.about.root}>
+          <Link href={`${ROUTES.about.root}#projects`}>
             {`Back to `}
             <code className="rounded-md bg-base-300 p-1 dark:bg-base-1300">
               {ROUTES.about.root}
