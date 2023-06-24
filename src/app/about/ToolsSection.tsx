@@ -21,6 +21,7 @@ import { TrpcLogo } from "@/components/svgs/TrpcLogo";
 import { useRef } from "react";
 import { TurboRepoLogo } from "@/components/svgs/TurboRepoLogo";
 import { Heading } from "@ui/Heading";
+import { MdxLogo } from "@/components/svgs/MdxLogo";
 
 export function ToolsSection() {
   const CONTENT = {
@@ -81,6 +82,11 @@ export function ToolsSection() {
           name: "TurboRepo",
           icon: TurboRepoLogo,
           url: "https://turbo.build/repo",
+        },
+        {
+          name: "MDX",
+          icon: MdxLogo,
+          url: "https://mdxjs.com/",
         },
       ],
     },
