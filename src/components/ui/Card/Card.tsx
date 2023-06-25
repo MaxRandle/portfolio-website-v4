@@ -47,7 +47,7 @@ export const CardLink = React.forwardRef<
   const focusClasses = [
     "transition-colors",
     "focus:ring-active",
-    "hover:bg-base-200 dark:hover:bg-base-1400",
+    "hover:bg-base-300 dark:hover:bg-base-1400",
     "hover:border-base-600 dark:hover:border-base-1000",
   ];
 

@@ -3,7 +3,7 @@
 import { Section } from "@ui/Section";
 import { Container } from "@ui/Container";
 
-import { PUBLIC } from "@/config/routes";
+import { PUBLIC_ASSET_MAP } from "@/config";
 import { Figure } from "@ui/Figure";
 
 import { motion } from "framer-motion";
@@ -16,7 +16,7 @@ export function HeroSection() {
     hero: {
       heading: "Max Randle",
       body: "Software Engineer",
-      media: PUBLIC.media.maxProfilePicture,
+      media: PUBLIC_ASSET_MAP.media.maxProfilePicture,
     },
   };
 

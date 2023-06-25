@@ -1,3 +1,4 @@
+import { SRC_ASSET_MAP } from "@/config";
 import fs from "fs";
 import matter from "gray-matter";
 import { MDXRemoteSerializeResult } from "next-mdx-remote/dist/types";
@@ -6,10 +7,9 @@ import path from "path";
 import rehypeHighlight from "rehype-highlight/lib";
 import rehypeSlug from "rehype-slug";
 
-export const PROJECTS_FOLDER_PATH = "src/projects";
 export const ABSOLUTE_PROJECTS_PATH = path.join(
   process.cwd(),
-  PROJECTS_FOLDER_PATH
+  SRC_ASSET_MAP.mdx.projects.folder
 );
 
 // PROJECT_FILE_PATHS is the list of all mdx files inside the PROJECTS_FOLDER_PATH directory
@@ -53,7 +53,10 @@ export const getProjectFromSlug = async (slug: string): Promise<Project> => {
     throw new Error(`No MD or MDX file found for slug ${slug}`);
   }
 
-  const projectFilePath = path.join(PROJECTS_FOLDER_PATH, filePath);
+  const projectFilePath = path.join(
+    SRC_ASSET_MAP.mdx.projects.folder,
+    filePath
+  );
   const source = fs.readFileSync(projectFilePath);
 
   const { content, data } = matter(source);

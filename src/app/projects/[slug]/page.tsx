@@ -5,7 +5,7 @@ import { Container } from "@ui/Container";
 import { Heading } from "@ui/Heading";
 import { Typography } from "@ui/Typography";
 import { Link } from "@ui/Link";
-import { ROUTES } from "@/config/routes";
+import { ROUTE_MAP } from "@/config";
 import { GithubRepositoryChip } from "@/components/misc/GithubRepositoryChip";
 
 type Params = {
@@ -23,10 +23,10 @@ export default async function Page({ params }: { params: Params }) {
     <main className="min-h-screen overflow-hidden">
       <Section>
         <Container>
-          <Link href={`${ROUTES.about.root}#projects`}>
+          <Link href={`${ROUTE_MAP.about.root}#projects`}>
             {`Back to `}
             <code className="rounded-md bg-base-300 p-1 dark:bg-base-1300">
-              {ROUTES.about.root}
+              {ROUTE_MAP.about.root}
             </code>
           </Link>
           <Heading className="mt-12" level={"h1"}>

@@ -8,7 +8,7 @@ import { CardContent, CardLink } from "@ui/Card";
 import { Badge } from "@ui/Badge";
 import { Avatar } from "@ui/Avatar";
 import { FiChevronRight } from "react-icons/fi";
-import { PUBLIC, ROUTES } from "@/config/routes";
+import { PUBLIC_ASSET_MAP, ROUTE_MAP } from "@/config";
 import { ProjectFrontMatter } from "@/utils/files";
 import { Heading } from "@ui/Heading";
 
@@ -30,14 +30,14 @@ export async function ProjectsSection({
             ({ slug, summary, tags, thumbnail, title }) => (
               <li key={slug}>
                 <CardLink
-                  href={ROUTES.projects.slug(slug)}
+                  href={ROUTE_MAP.projects.slug(slug)}
                   className="flex items-center justify-between"
                 >
                   <CardContent>
                     <div className="flex gap-4">
                       {!!thumbnail ? (
                         <Avatar
-                          src={PUBLIC.media.projects.thumbnails.fileName(
+                          src={PUBLIC_ASSET_MAP.media.projects.thumbnails.fileName(
                             thumbnail
                           )}
                           alt={title}

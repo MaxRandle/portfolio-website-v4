@@ -5,7 +5,7 @@ import { Container } from "@ui/Container";
 import { AnimatedBrandLogo } from "@/components/brand/AnimatedBrandLogo";
 import { ButtonLink } from "@ui/Button";
 import { motion } from "framer-motion";
-import { ROUTES } from "@/config/routes";
+import { ROUTE_MAP } from "@/config";
 import { fadeAndRiseIn } from "@/utils/animations";
 
 export default function Page() {
@@ -29,7 +29,7 @@ export default function Page() {
               className="shadow-lg drop-shadow-glow-md"
               size="lg"
               intent="primary"
-              href={ROUTES.about.root}
+              href={ROUTE_MAP.about.root}
             >
               Enter
             </ButtonLink>

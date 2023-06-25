@@ -1,15 +1,18 @@
 "use client";
 
 import { Container } from "@ui/Container";
-import { ROUTES } from "@/config/routes";
+import { ROUTE_MAP } from "@/config";
 import { BrandLogoIcon } from "@/components/brand/BrandLogoIcon";
 import { usePathname } from "next/navigation";
 import { Nav, NavLink } from "@ui/Nav";
 
 const navigations = [
-  { url: ROUTES.intro.root, content: <BrandLogoIcon className="shrink-0" /> },
-  { url: ROUTES.about.root, content: "About" },
-  { url: ROUTES.playground.root, content: "Playground" },
+  {
+    url: ROUTE_MAP.intro.root,
+    content: <BrandLogoIcon className="shrink-0" />,
+  },
+  { url: ROUTE_MAP.about.root, content: "About" },
+  { url: ROUTE_MAP.playground.root, content: "Playground" },
 ];
 
 export const AppNavHeader = () => {

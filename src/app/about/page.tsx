@@ -1,7 +1,7 @@
 import { Container } from "@ui/Container";
 import { AppNavHeader } from "@/components/composite/AppNavHeader";
 
-import { PUBLIC } from "@/config/routes";
+import { PUBLIC_ASSET_MAP } from "@/config";
 
 import { FiExternalLink } from "react-icons/fi";
 
@@ -30,7 +30,7 @@ export default async function Page() {
         <ButtonLink
           className="inline-flex items-center gap-2"
           intent={"secondary"}
-          href={PUBLIC.documents.resume}
+          href={PUBLIC_ASSET_MAP.documents.resume}
           target="_blank"
         >
           {`résumé`}
