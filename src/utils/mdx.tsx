@@ -7,33 +7,33 @@ import { twMerge } from "tailwind-merge";
 
 export const MdxComponentMap: MDXComponents = {
   h1: (props: HeadingProps) => (
-    <Heading className="mt-24" {...props} level={"h1"} />
+    <Heading className="mt-24" level={"h1"} {...props} />
   ),
   h2: (props: HeadingProps) => (
-    <Heading className="mt-12" {...props} level={"h2"} />
+    <Heading className="mt-12" level={"h2"} {...props} />
   ),
   h3: (props: HeadingProps) => (
-    <Heading className="mt-4" {...props} level={"h3"} />
+    <Heading className="mt-4" level={"h3"} {...props} />
   ),
   p: (props: TypographyProps) => (
-    <Typography className="mt-4" palette={"weaker"} {...props} level={"body"} />
+    <Typography className="mt-4" palette={"weaker"} level={"body"} {...props} />
   ),
-  a: ({ ...props }: React.ComponentProps<"a">) => (
-    <AnchorLink className="mt-4" target="_blank" {...props} />
-  ),
-  ol: ({ ...props }: React.ComponentProps<"ol">) => (
-    <ol className="mt-4 list-decimal space-y-2" {...props} />
-  ),
-  ul: ({ ...props }: React.ComponentProps<"ul">) => (
-    <ul className="mt-4 list-disc space-y-2" {...props} />
-  ),
-  li: ({ ...props }: React.ComponentProps<"li">) => (
+  a: (props) => <AnchorLink className="mt-4" target="_blank" {...props} />,
+  ol: (props) => <ol className="mt-4 list-decimal space-y-2" {...props} />,
+  ul: (props) => <ul className="mt-4 list-disc space-y-2" {...props} />,
+  li: (props) => (
     <li
       className="ml-12 space-x-2 text-base-1000 marker:text-base-1000 dark:text-base-700 marker:dark:text-base-700"
       {...props}
     />
   ),
   pre: (props) => <pre className="mt-4" {...props} />,
+  hr: (props) => <hr className="mt-4" {...props} />,
+  table: (props) => <table {...props} />,
+  thead: (props) => <thead {...props} />,
+  tbody: (props) => <tbody {...props} />,
+  tr: (props) => <tr {...props} />,
+  td: (props) => <td {...props} />,
 };
 
 const EmbedVariants = cva(["mt-8"], {

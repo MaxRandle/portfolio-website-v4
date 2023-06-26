@@ -3,6 +3,9 @@ const config = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        resume: ["Times New Roman"],
+      },
       colors: {
         base: {
           100: "var(--base-100)",

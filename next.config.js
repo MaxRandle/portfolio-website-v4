@@ -1,9 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    mdxRs: true,
+  },
   reactStrictMode: true,
   images: {
     domains: ["dummyimage.com", "placekitten.com"],
   },
 };
 
-module.exports = nextConfig;
+const withMDX = require("@next/mdx")({
+  options: {
+    providerImportSource: "@mdx-js/react",
+  },
+});
+module.exports = withMDX(nextConfig);

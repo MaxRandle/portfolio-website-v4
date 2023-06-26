@@ -57,7 +57,20 @@ export const getProjectFromSlug = async (slug: string): Promise<Project> => {
     SRC_ASSET_MAP.mdx.projects.folder,
     filePath
   );
-  const source = fs.readFileSync(projectFilePath);
+
+  const { mdxSource, data } = await readAndSerializeMdxFile(projectFilePath);
+
+  return {
+    source: mdxSource,
+    frontMatter: {
+      slug,
+      ...data,
+    } as ProjectFrontMatter,
+  };
+};
+
+export const readAndSerializeMdxFile = async (filePath: string) => {
+  const source = fs.readFileSync(filePath);
 
   const { content, data } = matter(source);
 
@@ -69,11 +82,5 @@ export const getProjectFromSlug = async (slug: string): Promise<Project> => {
     scope: data,
   });
 
-  return {
-    source: mdxSource,
-    frontMatter: {
-      slug,
-      ...data,
-    } as ProjectFrontMatter,
-  };
+  return { mdxSource, data };
 };
