@@ -7,21 +7,40 @@ import path from "path";
 import rehypeHighlight from "rehype-highlight/lib";
 import rehypeSlug from "rehype-slug";
 
-export const ABSOLUTE_PROJECTS_PATH = path.join(
-  process.cwd(),
-  SRC_ASSET_MAP.mdx.projects.folder
-);
 
-// PROJECT_FILE_PATHS is the list of all mdx files inside the PROJECTS_FOLDER_PATH directory
-export const PROJECT_FILE_PATHS = fs
-  .readdirSync(ABSOLUTE_PROJECTS_PATH)
+
+const getProjectFilePaths = () => {
+  const absoluteProjectFolderPath = path.join(
+    process.cwd(),
+    SRC_ASSET_MAP.mdx.projects.folder
+  );
+
+    // PROJECT_FILE_PATHS is the list of all mdx files inside the PROJECTS_FOLDER_PATH directory
+  const projectFilePaths = fs
+  .readdirSync(absoluteProjectFolderPath)
   // Only include md(x) files
   .filter((path) => /\.mdx?$/.test(path));
 
-export const PROJECT_SLUGS = PROJECT_FILE_PATHS.map((filePath) =>
-  filePath.replace(/\.mdx?$/, "")
-);
+  return projectFilePaths;
+}
 
+
+/**
+  * Gets the slugs of all projects
+  * @returns The slugs of all projects
+  */
+export const getProjectSlugs = () => {
+  
+  const projectFilePaths = getProjectFilePaths();
+
+  const projectSlugs = projectFilePaths.map((filePath) =>
+  filePath.replace(/\.mdx?$/, "")
+  );
+
+return projectSlugs;
+
+}
+  
 export type ProjectFrontMatter = {
   slug: string;
   title: string;
@@ -47,7 +66,8 @@ export type Project = {
  * @returns The project with the given slug
  */
 export const getProjectFromSlug = async (slug: string): Promise<Project> => {
-  const filePath = PROJECT_FILE_PATHS.find((path) => path.includes(slug));
+  const filePath = getProjectFilePaths().find((path) => path.includes(slug));
+  console.log(filePath)
 
   if (!filePath) {
     throw new Error(`No MD or MDX file found for slug ${slug}`);
@@ -69,6 +89,11 @@ export const getProjectFromSlug = async (slug: string): Promise<Project> => {
   };
 };
 
+/**
+ * Reads and serializes an MDX file
+ * @param filePath - The *ABSOLUTE* path to the MDX file
+ * @returns The serialized MDX source and the front matter
+ */
 export const readAndSerializeMdxFile = async (filePath: string) => {
   const source = fs.readFileSync(filePath);
 

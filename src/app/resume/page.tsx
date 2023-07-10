@@ -6,7 +6,7 @@ import { Container } from "@ui/Container";
 
 import MDXResume from "@/content/mdx/resume.mdx";
 
-export default async function Page() {
+export default function Page() {
   const pageRootClasses = ["min-h-screen overflow-hidden"];
   const resumeStyleClasses = ["font-resume"];
 

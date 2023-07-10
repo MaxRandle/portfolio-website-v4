@@ -12,7 +12,7 @@ import { PUBLIC_ASSET_MAP, ROUTE_MAP } from "@/config";
 import { ProjectFrontMatter } from "@/utils/files";
 import { Heading } from "@ui/Heading";
 
-export async function ProjectsSection({
+export function ProjectsSection({
   projectsFrontMatter,
 }: {
   projectsFrontMatter: ProjectFrontMatter[];

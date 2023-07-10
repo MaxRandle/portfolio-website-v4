@@ -1,4 +1,4 @@
-import { PROJECT_SLUGS, getProjectFromSlug } from "@/utils/files";
+import { getProjectSlugs, getProjectFromSlug } from "@/utils/files";
 import { ProjectMdxContent } from "./ProjectMdxContent";
 import { Section } from "@ui/Section";
 import { Container } from "@ui/Container";
@@ -49,5 +49,5 @@ export default async function Page({ params }: { params: Params }) {
 }
 
 export function generateStaticParams() {
-  return PROJECT_SLUGS;
+  return getProjectSlugs();
 }

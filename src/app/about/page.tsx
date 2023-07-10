@@ -12,11 +12,11 @@ import { WorkSection } from "./WorkSection";
 import { StackSection } from "./StackSection";
 import { ToolsSection } from "./ToolsSection";
 import { ProjectsSection } from "./ProjectsSection";
-import { PROJECT_SLUGS, getProjectFromSlug } from "@/utils/files";
+import { getProjectSlugs, getProjectFromSlug } from "@/utils/files";
 
 export default async function Page() {
   const projectsFrontMatter = (
-    await Promise.all(PROJECT_SLUGS.map(getProjectFromSlug))
+    await Promise.all(getProjectSlugs().map(getProjectFromSlug))
   ).map((project) => project.frontMatter);
 
   return (
