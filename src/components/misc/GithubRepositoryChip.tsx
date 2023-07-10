@@ -27,6 +27,7 @@ export const GithubRepositoryChip: React.FC<
           "inline-flex max-w-full items-center gap-2",
           "rounded-full px-4 py-2",
           "bg-black text-white",
+          "dark:bg-white dark:text-black",
         ],
         className
       )}
@@ -36,7 +37,7 @@ export const GithubRepositoryChip: React.FC<
       <code className="overflow-hidden text-ellipsis whitespace-nowrap">
         {repo}
       </code>
-      <BsFillStarFill className="shrink-0" color="gold" />
+      <BsFillStarFill className="shrink-0 text-amber-300 dark:text-amber-400" />
       <p>{stargazersCount}</p>
     </a>
   );

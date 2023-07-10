@@ -8,16 +8,25 @@ import rehypeHighlight from "rehype-highlight/lib";
 import rehypeSlug from "rehype-slug";
 
 const getProjectFilePaths = () => {
+  console.log("process.cwd(), SRC_ASSET_MAP.mdx.projects.folder");
+  console.log(process.cwd(), SRC_ASSET_MAP.mdx.projects.folder);
+
   const absoluteProjectFolderPath = path.join(
     process.cwd(),
     SRC_ASSET_MAP.mdx.projects.folder
   );
+
+  console.log("absoluteProjectFolderPath");
+  console.log(absoluteProjectFolderPath);
 
   // PROJECT_FILE_PATHS is the list of all mdx files inside the PROJECTS_FOLDER_PATH directory
   const projectFilePaths = fs
     .readdirSync(absoluteProjectFolderPath)
     // Only include md(x) files
     .filter((path) => /\.mdx?$/.test(path));
+
+  console.log("projectFilePaths");
+  console.log(projectFilePaths);
 
   return projectFilePaths;
 };
