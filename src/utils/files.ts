@@ -7,40 +7,35 @@ import path from "path";
 import rehypeHighlight from "rehype-highlight/lib";
 import rehypeSlug from "rehype-slug";
 
-
-
 const getProjectFilePaths = () => {
   const absoluteProjectFolderPath = path.join(
     process.cwd(),
     SRC_ASSET_MAP.mdx.projects.folder
   );
 
-    // PROJECT_FILE_PATHS is the list of all mdx files inside the PROJECTS_FOLDER_PATH directory
+  // PROJECT_FILE_PATHS is the list of all mdx files inside the PROJECTS_FOLDER_PATH directory
   const projectFilePaths = fs
-  .readdirSync(absoluteProjectFolderPath)
-  // Only include md(x) files
-  .filter((path) => /\.mdx?$/.test(path));
+    .readdirSync(absoluteProjectFolderPath)
+    // Only include md(x) files
+    .filter((path) => /\.mdx?$/.test(path));
 
   return projectFilePaths;
-}
-
+};
 
 /**
-  * Gets the slugs of all projects
-  * @returns The slugs of all projects
-  */
+ * Gets the slugs of all projects
+ * @returns The slugs of all projects
+ */
 export const getProjectSlugs = () => {
-  
   const projectFilePaths = getProjectFilePaths();
 
   const projectSlugs = projectFilePaths.map((filePath) =>
-  filePath.replace(/\.mdx?$/, "")
+    filePath.replace(/\.mdx?$/, "")
   );
 
-return projectSlugs;
+  return projectSlugs;
+};
 
-}
-  
 export type ProjectFrontMatter = {
   slug: string;
   title: string;
@@ -67,7 +62,7 @@ export type Project = {
  */
 export const getProjectFromSlug = async (slug: string): Promise<Project> => {
   const filePath = getProjectFilePaths().find((path) => path.includes(slug));
-  console.log(filePath)
+  console.log(filePath);
 
   if (!filePath) {
     throw new Error(`No MD or MDX file found for slug ${slug}`);
