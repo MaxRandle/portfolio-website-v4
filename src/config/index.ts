@@ -6,6 +6,7 @@ export const ROUTE_MAP = {
   intro: { root: "/" },
   about: { root: "/about" },
   playground: { root: "/playground" },
+  resume: { root: "/resume" },
   projects: {
     slug: (slug: string) => `/projects/${slug}`,
   },

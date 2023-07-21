@@ -3,11 +3,12 @@ import { useEffect, useState } from "react";
 /**
  *
  * @summary hook that cycles through an array of values at fixed intervals
- * @example const currentValue = useCycleArray([1, 2, 3], 1000);
+ * @example const currentValue = useCycleArray<string>(["a", "b", "c"], 1000);
  *
  * @param values array of values to cycle through
  * @param interval time in milliseconds between cycles
  * @returns the current item and current index in the array
+ *
  */
 export const useCycleArray = <T>(
   values: readonly T[],
