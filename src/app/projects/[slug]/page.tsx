@@ -14,8 +14,13 @@ type Params = {
 
 export default async function Page({ params }: { params: Params }) {
   const { slug } = params;
-
+  console.log("slug", slug);
+  console.log("===============================================");
   const { frontMatter, source } = await getProjectFromSlug(slug);
+  console.log("frontMatter", frontMatter);
+  console.log("===============================================");
+  console.log("source", source);
+  console.log("===============================================");
 
   const { title, summary, repo } = frontMatter;
 
