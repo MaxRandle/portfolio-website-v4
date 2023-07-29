@@ -7,20 +7,34 @@ import path from "path";
 import rehypeHighlight from "rehype-highlight/lib";
 import rehypeSlug from "rehype-slug";
 
+function printDirectoryStructure(base: string, level: string = ""): void {
+  // Synchronously read the contents of the base directory
+  const entries = fs.readdirSync(base);
+
+  for (const entry of entries) {
+    const entryPath = path.join(base, entry);
+    const stats = fs.statSync(entryPath);
+
+    // If the current entry is a directory, recursively print its structure
+    if (stats.isDirectory()) {
+      console.log(`${level}+ ${entry}`);
+      printDirectoryStructure(entryPath, level + "  ");
+    } else {
+      console.log(`${level}|- ${entry}`);
+    }
+  }
+}
+
 const getProjectFileNames = () => {
-  console.log(
-    "SRC_ASSET_MAP.mdx.projects.folder",
-    SRC_ASSET_MAP.mdx.projects.folder
-  );
+  console.log("==============================================================");
+  printDirectoryStructure(path.join(process.cwd(), "src"));
+
   console.log("process.cwd()", process.cwd());
 
   const absoluteProjectFolderPath = path.join(
     process.cwd(),
     SRC_ASSET_MAP.mdx.projects.folder
   );
-
-  console.log("absoluteProjectFolderPath");
-  console.log(absoluteProjectFolderPath);
 
   // PROJECT_FILE_PATHS is the list of all mdx files inside the PROJECTS_FOLDER_PATH directory
   const projectFileNames = fs
