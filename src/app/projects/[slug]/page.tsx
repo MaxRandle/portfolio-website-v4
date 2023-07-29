@@ -8,16 +8,27 @@ import { Link } from "@ui/Link";
 import { ROUTE_MAP } from "@/config";
 import { GithubRepositoryChip } from "@/components/misc/GithubRepositoryChip";
 
+/**
+ * true (default): Dynamic segments not included in generateStaticParams are generated on demand.
+ * false: Dynamic segments not included in generateStaticParams will return a 404.
+ */
+export const dynamicParams = false; // true | false,
+
 type Params = {
   slug: string;
 };
 
+export function generateStaticParams(): Params[] {
+  return getProjectSlugs().map((slug) => ({
+    slug,
+  }));
+}
+
 export default async function Page({ params }: { params: Params }) {
+  console.log(params);
   const { slug } = params;
-  console.log(slug);
 
-  const { frontMatter } = await getProjectFromSlug(slug);
-
+  const { frontMatter, source } = await getProjectFromSlug(slug);
   const { title, summary, repo } = frontMatter;
 
   return (
@@ -40,15 +51,11 @@ export default async function Page({ params }: { params: Params }) {
         </Container>
       </Section>
 
-      {/* <Section>
+      <Section>
         <Container>
           <ProjectMdxContent {...source} />
         </Container>
-      </Section> */}
+      </Section>
     </main>
   );
-}
-
-export function generateStaticParams() {
-  return getProjectSlugs();
 }

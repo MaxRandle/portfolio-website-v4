@@ -66,8 +66,6 @@ export async function getProjectBySlug(slug: string) {
   const fullPath = join(SRC_ASSET_MAP.mdx.projects.folder, `${slug}.mdx`);
   const { frontMatter, content } = await readAndParseMdxFile(fullPath);
 
-  console.log(frontMatter);
-
   return {
     frontMatter: frontMatter as ProjectFrontMatter,
     content,

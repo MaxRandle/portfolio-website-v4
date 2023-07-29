@@ -8,7 +8,6 @@ import rehypeHighlight from "rehype-highlight/lib";
 import rehypeSlug from "rehype-slug";
 
 const getProjectFileNames = () => {
-  console.log("process.cwd()", process.cwd());
   const absoluteProjectFolderPath = path.join(
     process.cwd(),
     SRC_ASSET_MAP.mdx.projects.folder
@@ -19,9 +18,6 @@ const getProjectFileNames = () => {
     .readdirSync(absoluteProjectFolderPath)
     // Only include md(x) files
     .filter((path) => /\.mdx?$/.test(path));
-
-  console.log("projectFileNames");
-  console.log(projectFileNames);
 
   return projectFileNames;
 };
@@ -65,7 +61,6 @@ export type Project = {
  */
 export const getProjectFromSlug = async (slug: string): Promise<Project> => {
   const filePath = getProjectFileNames().find((path) => path.includes(slug));
-  console.log("filePath", filePath);
 
   if (!filePath) {
     throw new Error(`No MD or MDX file found for slug ${slug}`);
@@ -75,7 +70,6 @@ export const getProjectFromSlug = async (slug: string): Promise<Project> => {
     SRC_ASSET_MAP.mdx.projects.folder,
     filePath
   );
-  console.log("projectFilePath", projectFilePath);
 
   const { mdxSource, data } = await readAndSerializeMdxFile(projectFilePath);
 
