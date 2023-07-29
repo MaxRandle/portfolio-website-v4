@@ -27,7 +27,7 @@ function printDirectoryStructure(base: string, level: string = ""): void {
 
 const getProjectFileNames = () => {
   console.log("==============================================================");
-  printDirectoryStructure(path.join(process.cwd(), "src"));
+  printDirectoryStructure(process.cwd());
 
   console.log("process.cwd()", process.cwd());
 
