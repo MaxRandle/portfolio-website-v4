@@ -14,7 +14,9 @@ type Params = {
 
 export default async function Page({ params }: { params: Params }) {
   const { slug } = params;
-  const { frontMatter, source } = await getProjectFromSlug(slug);
+  console.log(slug);
+
+  const { frontMatter } = await getProjectFromSlug(slug);
 
   const { title, summary, repo } = frontMatter;
 
@@ -38,11 +40,11 @@ export default async function Page({ params }: { params: Params }) {
         </Container>
       </Section>
 
-      <Section>
+      {/* <Section>
         <Container>
           <ProjectMdxContent {...source} />
         </Container>
-      </Section>
+      </Section> */}
     </main>
   );
 }

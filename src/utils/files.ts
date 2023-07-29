@@ -7,54 +7,23 @@ import path from "path";
 import rehypeHighlight from "rehype-highlight/lib";
 import rehypeSlug from "rehype-slug";
 
-function getCurrentDirectoryStructure(base: string): string {
-  let result = "";
-
-  // Synchronously read the contents of the base directory
-  const entries = fs.readdirSync(base);
-
-  for (const entry of entries) {
-    const entryPath = path.join(base, entry);
-    const stats = fs.statSync(entryPath);
-
-    // Append directory or file name to the result string
-    if (stats.isDirectory()) {
-      result += `+ ${entry}\n`;
-    } else {
-      result += `|- ${entry}\n`;
-    }
-  }
-
-  return result;
-}
-
 const getProjectFileNames = () => {
-  const dir = getCurrentDirectoryStructure(process.cwd());
-
   console.log("process.cwd()", process.cwd());
-
   const absoluteProjectFolderPath = path.join(
     process.cwd(),
     SRC_ASSET_MAP.mdx.projects.folder
   );
 
-  try {
-    // PROJECT_FILE_PATHS is the list of all mdx files inside the PROJECTS_FOLDER_PATH directory
-    const projectFileNames = fs
-      .readdirSync(absoluteProjectFolderPath)
-      // Only include md(x) files
-      .filter((path) => /\.mdx?$/.test(path));
+  // projectFileNames is the list of all mdx files inside the absoluteProjectFolderPath directory
+  const projectFileNames = fs
+    .readdirSync(absoluteProjectFolderPath)
+    // Only include md(x) files
+    .filter((path) => /\.mdx?$/.test(path));
 
-    console.log("projectFileNames");
-    console.log(projectFileNames);
+  console.log("projectFileNames");
+  console.log(projectFileNames);
 
-    return projectFileNames;
-  } catch {
-    console.log(
-      "=============================================================="
-    );
-    throw dir;
-  }
+  return projectFileNames;
 };
 
 /**

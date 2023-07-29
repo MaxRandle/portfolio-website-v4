@@ -4,7 +4,7 @@ import { Container } from "@ui/Container";
 import { Heading } from "@ui/Heading";
 import { Typography } from "@ui/Typography";
 import { Link } from "@ui/Link";
-import { ROUTE_MAP, SRC_ASSET_MAP } from "@/config";
+import { ROUTE_MAP } from "@/config";
 import { GithubRepositoryChip } from "@/components/misc/GithubRepositoryChip";
 
 import MDXResume from "@/content/mdx/projects/alpha-tac.mdx";

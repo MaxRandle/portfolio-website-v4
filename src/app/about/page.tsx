@@ -1,7 +1,7 @@
 import { Container } from "@ui/Container";
 import { AppNavHeader } from "@/components/composite/AppNavHeader";
 
-import { PUBLIC_ASSET_MAP, ROUTE_MAP } from "@/config";
+import { ROUTE_MAP } from "@/config";
 
 import { FiExternalLink } from "react-icons/fi";
 
