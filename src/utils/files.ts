@@ -7,7 +7,7 @@ import path from "path";
 import rehypeHighlight from "rehype-highlight/lib";
 import rehypeSlug from "rehype-slug";
 
-function getDirectoryStructure(base: string, level: string = ""): string {
+function getCurrentDirectoryStructure(base: string): string {
   let result = "";
 
   // Synchronously read the contents of the base directory
@@ -17,12 +17,11 @@ function getDirectoryStructure(base: string, level: string = ""): string {
     const entryPath = path.join(base, entry);
     const stats = fs.statSync(entryPath);
 
-    // If the current entry is a directory, recursively get its structure
+    // Append directory or file name to the result string
     if (stats.isDirectory()) {
-      result += `${level}+ ${entry}\n`;
-      result += getDirectoryStructure(entryPath, level + "  ");
+      result += `+ ${entry}\n`;
     } else {
-      result += `${level}|- ${entry}\n`;
+      result += `|- ${entry}\n`;
     }
   }
 
@@ -30,7 +29,7 @@ function getDirectoryStructure(base: string, level: string = ""): string {
 }
 
 const getProjectFileNames = () => {
-  const dir = getDirectoryStructure(process.cwd());
+  const dir = getCurrentDirectoryStructure(process.cwd());
 
   console.log("process.cwd()", process.cwd());
 
