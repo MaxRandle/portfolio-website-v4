@@ -7,7 +7,9 @@ import path from "path";
 import rehypeHighlight from "rehype-highlight/lib";
 import rehypeSlug from "rehype-slug";
 
-function printDirectoryStructure(base: string, level: string = ""): void {
+function getDirectoryStructure(base: string, level: string = ""): string {
+  let result = "";
+
   // Synchronously read the contents of the base directory
   const entries = fs.readdirSync(base);
 
@@ -15,19 +17,20 @@ function printDirectoryStructure(base: string, level: string = ""): void {
     const entryPath = path.join(base, entry);
     const stats = fs.statSync(entryPath);
 
-    // If the current entry is a directory, recursively print its structure
+    // If the current entry is a directory, recursively get its structure
     if (stats.isDirectory()) {
-      console.error(`${level}+ ${entry}`);
-      printDirectoryStructure(entryPath, level + "  ");
+      result += `${level}+ ${entry}\n`;
+      result += getDirectoryStructure(entryPath, level + "  ");
     } else {
-      console.error(`${level}|- ${entry}`);
+      result += `${level}|- ${entry}\n`;
     }
   }
+
+  return result;
 }
 
 const getProjectFileNames = () => {
-  console.log("==============================================================");
-  printDirectoryStructure(process.cwd());
+  const dir = getDirectoryStructure(process.cwd());
 
   console.log("process.cwd()", process.cwd());
 
@@ -36,16 +39,24 @@ const getProjectFileNames = () => {
     SRC_ASSET_MAP.mdx.projects.folder
   );
 
-  // PROJECT_FILE_PATHS is the list of all mdx files inside the PROJECTS_FOLDER_PATH directory
-  const projectFileNames = fs
-    .readdirSync(absoluteProjectFolderPath)
-    // Only include md(x) files
-    .filter((path) => /\.mdx?$/.test(path));
+  try {
+    // PROJECT_FILE_PATHS is the list of all mdx files inside the PROJECTS_FOLDER_PATH directory
+    const projectFileNames = fs
+      .readdirSync(absoluteProjectFolderPath)
+      // Only include md(x) files
+      .filter((path) => /\.mdx?$/.test(path));
 
-  console.log("projectFileNames");
-  console.log(projectFileNames);
+    console.log("projectFileNames");
+    console.log(projectFileNames);
 
-  return projectFileNames;
+    return projectFileNames;
+  } catch {
+    console.log(
+      "=============================================================="
+    );
+    console.error(dir);
+    return [];
+  }
 };
 
 /**
