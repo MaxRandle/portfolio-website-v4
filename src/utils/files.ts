@@ -54,8 +54,7 @@ const getProjectFileNames = () => {
     console.log(
       "=============================================================="
     );
-    console.error(dir);
-    return [];
+    throw dir;
   }
 };
 
