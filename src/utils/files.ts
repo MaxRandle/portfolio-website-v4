@@ -17,10 +17,10 @@ function printDirectoryStructure(base: string, level: string = ""): void {
 
     // If the current entry is a directory, recursively print its structure
     if (stats.isDirectory()) {
-      console.log(`${level}+ ${entry}`);
+      console.info(`${level}+ ${entry}`);
       printDirectoryStructure(entryPath, level + "  ");
     } else {
-      console.log(`${level}|- ${entry}`);
+      console.info(`${level}|- ${entry}`);
     }
   }
 }
